@@ -1,11 +1,28 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Layout } from "@/components/Layout";
+import { Reveal } from "@/components/Reveal";
+import { ogMeta, twitterMeta } from "@/lib/seo";
+
+const TITLE = "About TAG Events | Luxury Wedding & Event Experts";
+const DESCRIPTION =
+  "Learn about TAG Events, our experience, passion, and commitment to creating memorable weddings and luxury events across Nova Scotia.";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — TAG Events & Productions" },
-      { name: "description", content: "Our story, experience, and mission." },
+      { title: TITLE },
+      { name: "description", content: DESCRIPTION },
+      ...ogMeta({ title: TITLE, description: DESCRIPTION, path: "/about" }),
+      ...twitterMeta({ title: TITLE, description: DESCRIPTION }),
+    ],
+    links: [
+      { rel: "canonical", href: "https://www.tagevent.ca/about" },
+      {
+        rel: "preload",
+        as: "image",
+        fetchPriority: "high",
+        href: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1800&q=80",
+      },
     ],
   }),
   component: About,
@@ -48,31 +65,34 @@ function About() {
 
         {/* Hero image */}
         <section className="pb-[120px] lg:pb-[160px]">
-          <div className="aspect-[16/9] w-full overflow-hidden bg-secondary shadow-2xl">
+          <Reveal className="aspect-[16/9] w-full overflow-hidden bg-secondary shadow-2xl">
             <img
               src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1800&q=80"
               alt="Luxury wedding reception"
-              loading="lazy"
+              width={1800}
+              height={1013}
+              loading="eager"
+              fetchPriority="high"
               className="h-full w-full object-cover"
             />
-          </div>
+          </Reveal>
         </section>
 
         {/* Experience Callout */}
-        <section className="py-[120px] text-center lg:py-[160px]">
+        <Reveal as="section" className="py-[120px] text-center lg:py-[160px]">
           <p className="font-heading text-[180px] font-medium leading-none tracking-tighter text-primary md:text-[260px] lg:text-[320px]">
             17+
           </p>
           <p className="mt-6 text-sm font-medium uppercase tracking-[0.3em] text-foreground">
             Years of Experience
           </p>
-        </section>
+        </Reveal>
 
         {/* Story / Experience / Mission — aligned 3-column grid */}
         <section className="pb-[120px] lg:pb-[160px]">
           <div className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-10 lg:gap-16">
-            {pillars.map((p) => (
-              <div key={p.number} className="flex flex-col">
+            {pillars.map((p, i) => (
+              <Reveal key={p.number} delay={i * 100} className="flex flex-col">
                 <p className="mb-4 text-xs font-medium uppercase tracking-[0.25em] text-primary">
                   {p.number} — {p.label}
                 </p>
@@ -80,7 +100,7 @@ function About() {
                   {p.title}
                 </h2>
                 <p className="leading-[1.8] text-muted-foreground">{p.body}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </section>
@@ -88,15 +108,36 @@ function About() {
         {/* Photo band */}
         <section className="pb-[120px] lg:pb-[160px]">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
-            <div className="aspect-[3/4] overflow-hidden bg-secondary">
-              <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=900&q=80" alt="Bridal portrait" loading="lazy" className="h-full w-full object-cover" />
-            </div>
-            <div className="aspect-[3/4] overflow-hidden bg-secondary">
-              <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=900&q=80" alt="Floral details" loading="lazy" className="h-full w-full object-cover" />
-            </div>
-            <div className="aspect-[3/4] overflow-hidden bg-secondary">
-              <img src="https://images.unsplash.com/photo-1525772764200-be829a350797?auto=format&fit=crop&w=900&q=80" alt="Tablescape" loading="lazy" className="h-full w-full object-cover" />
-            </div>
+            <Reveal className="aspect-[3/4] overflow-hidden bg-secondary">
+              <img
+                src="https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=900&q=80"
+                alt="Bridal portrait"
+                width={900}
+                height={1200}
+                loading="lazy"
+                className="h-full w-full object-cover"
+              />
+            </Reveal>
+            <Reveal delay={100} className="aspect-[3/4] overflow-hidden bg-secondary">
+              <img
+                src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=900&q=80"
+                alt="Floral details"
+                width={900}
+                height={1200}
+                loading="lazy"
+                className="h-full w-full object-cover"
+              />
+            </Reveal>
+            <Reveal delay={200} className="aspect-[3/4] overflow-hidden bg-secondary">
+              <img
+                src="https://images.unsplash.com/photo-1525772764200-be829a350797?auto=format&fit=crop&w=900&q=80"
+                alt="Tablescape"
+                width={900}
+                height={1200}
+                loading="lazy"
+                className="h-full w-full object-cover"
+              />
+            </Reveal>
           </div>
         </section>
       </div>

@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Layout } from "@/components/Layout";
+import { Reveal } from "@/components/Reveal";
 import {
   Mail,
   Phone,
@@ -22,13 +23,21 @@ import {
   Sparkles,
   ChevronDown,
 } from "lucide-react";
+import { ogMeta, twitterMeta } from "@/lib/seo";
+
+const TITLE = "Contact TAG Events | Book Your Consultation";
+const DESCRIPTION =
+  "Contact TAG Events to discuss your upcoming wedding, celebration, or corporate event.";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — TAG Events & Productions" },
-      { name: "description", content: "Get in touch with TAG Events & Wedding Planner." },
+      { title: TITLE },
+      { name: "description", content: DESCRIPTION },
+      ...ogMeta({ title: TITLE, description: DESCRIPTION, path: "/contact" }),
+      ...twitterMeta({ title: TITLE, description: DESCRIPTION }),
     ],
+    links: [{ rel: "canonical", href: "https://www.tagevent.ca/contact" }],
   }),
   component: Contact,
 });
@@ -44,19 +53,71 @@ const packages = [
 ];
 
 const enhanceServices = [
-  { icon: Type, name: "Marquee Letters", desc: "Statement light-up letters for grand entrances." },
-  { icon: Mic, name: "Audio Guest Book", desc: "Vintage phone for heartfelt voice messages." },
-  { icon: Aperture, name: "360 Photo Booth", desc: "Cinematic slow-motion video moments." },
-  { icon: Video, name: "Wedding Content Creation", desc: "Same-day social-ready reels and highlights." },
-  { icon: Trees, name: "Luxury Picnic Setups", desc: "Curated outdoor experiences for intimate gatherings." },
-  { icon: HeartHandshake, name: "Proposal Planning", desc: "Bespoke proposal design from concept to capture." },
-  { icon: Gift, name: "Bridal Shower Packages", desc: "All-inclusive shower styling and coordination." },
-  { icon: Sofa, name: "Chair Covers & Linens", desc: "Premium textiles for an elevated tablescape." },
-  { icon: UtensilsCrossed, name: "Charger Plates", desc: "Luxury place settings in gold, silver & marble." },
-  { icon: Users, name: "Event Staffing", desc: "Trained hosts, servers, and on-site coordinators." },
-  { icon: Briefcase, name: "Corporate Event Planning", desc: "Refined galas, launches, and brand experiences." },
-  { icon: Globe, name: "Wedding Website Creation", desc: "Elegant custom sites with RSVP management." },
-  { icon: Sparkles, name: "Wedding Day Emergency Kits", desc: "Beautifully packaged essentials for the big day." },
+  {
+    icon: Type,
+    name: "Marquee Letters",
+    desc: "Statement light-up letters for grand entrances.",
+  },
+  {
+    icon: Mic,
+    name: "Audio Guest Book",
+    desc: "Vintage phone for heartfelt voice messages.",
+  },
+  {
+    icon: Aperture,
+    name: "360 Photo Booth",
+    desc: "Cinematic slow-motion video moments.",
+  },
+  {
+    icon: Video,
+    name: "Wedding Content Creation",
+    desc: "Same-day social-ready reels and highlights.",
+  },
+  {
+    icon: Trees,
+    name: "Luxury Picnic Setups",
+    desc: "Curated outdoor experiences for intimate gatherings.",
+  },
+  {
+    icon: HeartHandshake,
+    name: "Proposal Planning",
+    desc: "Bespoke proposal design from concept to capture.",
+  },
+  {
+    icon: Gift,
+    name: "Bridal Shower Packages",
+    desc: "All-inclusive shower styling and coordination.",
+  },
+  {
+    icon: Sofa,
+    name: "Chair Covers & Linens",
+    desc: "Premium textiles for an elevated tablescape.",
+  },
+  {
+    icon: UtensilsCrossed,
+    name: "Charger Plates",
+    desc: "Luxury place settings in gold, silver & marble.",
+  },
+  {
+    icon: Users,
+    name: "Event Staffing",
+    desc: "Trained hosts, servers, and on-site coordinators.",
+  },
+  {
+    icon: Briefcase,
+    name: "Corporate Event Planning",
+    desc: "Refined galas, launches, and brand experiences.",
+  },
+  {
+    icon: Globe,
+    name: "Wedding Website Creation",
+    desc: "Elegant custom sites with RSVP management.",
+  },
+  {
+    icon: Sparkles,
+    name: "Wedding Day Emergency Kits",
+    desc: "Beautifully packaged essentials for the big day.",
+  },
 ];
 
 function Contact() {
@@ -85,45 +146,50 @@ function Contact() {
             href="mailto:tagevents2604@gmail.com"
             className="flex items-center gap-3 text-foreground transition-colors hover:text-primary"
           >
-            <Mail className="text-primary h-5 w-5" />
+            <Mail aria-hidden="true" className="text-primary h-5 w-5" />
             <span className="text-sm">tagevents2604@gmail.com</span>
           </a>
           <a
             href="tel:+14165291135"
             className="flex items-center gap-3 text-foreground transition-colors hover:text-primary"
           >
-            <Phone className="text-primary h-5 w-5" />
+            <Phone aria-hidden="true" className="text-primary h-5 w-5" />
             <span className="text-sm">+1 (416) 529-1135</span>
           </a>
           <a
             href="https://www.instagram.com/tagevents2019?igsh=MWg3cWQ2cXYxN3V3dg=="
             target="_blank"
             rel="noreferrer"
+            aria-label="Instagram (opens in a new tab)"
             className="flex items-center gap-3 text-foreground transition-colors hover:text-primary"
           >
-            <Instagram className="text-primary h-5 w-5" />
+            <Instagram aria-hidden="true" className="text-primary h-5 w-5" />
             <span className="text-sm">Instagram</span>
           </a>
           <a
             href="https://www.facebook.com/share/1CuAvnXUqT/?mibextid=wwXIfr"
             target="_blank"
             rel="noreferrer"
+            aria-label="Facebook (opens in a new tab)"
             className="flex items-center gap-3 text-foreground transition-colors hover:text-primary"
           >
-            <Facebook className="text-primary h-5 w-5" />
+            <Facebook aria-hidden="true" className="text-primary h-5 w-5" />
             <span className="text-sm">Facebook</span>
           </a>
         </div>
 
-        {/* Inquiry form */}
+        {/* Inquiry form — temporarily disabled
         <section className="mb-24 md:mb-32">
           <h2 className="font-heading text-foreground mb-10 text-center">
             Inquiry Form
           </h2>
 
           {submitted ? (
-            <div className="mx-auto max-w-2xl rounded-2xl border border-primary bg-secondary p-10 text-center">
-              <Sparkles className="text-primary mx-auto mb-4 h-8 w-8" />
+            <div
+              role="status"
+              className="mx-auto max-w-2xl rounded-2xl border border-primary bg-secondary p-10 text-center animate-in fade-in slide-in-from-bottom-2 duration-500 motion-reduce:animate-none"
+            >
+              <Sparkles aria-hidden="true" className="text-primary mx-auto mb-4 h-8 w-8" />
               <h3 className="font-heading text-foreground mb-2 text-2xl">
                 Thank you
               </h3>
@@ -203,11 +269,19 @@ function Contact() {
                       </option>
                     ))}
                   </select>
-                  <ChevronDown className="pointer-events-none absolute right-0 top-1/2 h-4 w-4 -translate-y-1/2 text-charcoal" strokeWidth={1.5} />
+                  <ChevronDown
+                    aria-hidden="true"
+                    className="pointer-events-none absolute right-0 top-1/2 h-4 w-4 -translate-y-1/2 text-charcoal"
+                    strokeWidth={1.5}
+                  />
                 </div>
               </FormField>
 
-              <FormField label="Tell Us About Your Vision" htmlFor="message" className="md:col-span-2">
+              <FormField
+                label="Tell Us About Your Vision"
+                htmlFor="message"
+                className="md:col-span-2"
+              >
                 <textarea
                   id="message"
                   name="message"
@@ -227,10 +301,11 @@ function Contact() {
             </form>
           )}
         </section>
+        */}
 
         {/* Enhance Your Experience */}
         <section>
-          <div className="mb-12 text-center md:mb-16">
+          <Reveal className="mb-12 text-center md:mb-16">
             <p className="text-primary mb-3 text-xs font-medium uppercase tracking-[0.2em]">
               Boutique Add-Ons
             </p>
@@ -238,24 +313,30 @@ function Contact() {
               Enhance Your Experience
             </h2>
             <p className="text-muted-foreground mx-auto max-w-2xl leading-relaxed">
-              Curated luxury upgrades to elevate every moment of your celebration.
+              Curated luxury upgrades to elevate every moment of your
+              celebration.
             </p>
-          </div>
+          </Reveal>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {enhanceServices.map(({ icon: Icon, name, desc }) => (
-              <div
+            {enhanceServices.map(({ icon: Icon, name, desc }, i) => (
+              <Reveal
                 key={name}
+                delay={(i % 6) * 80}
                 className="group rounded-2xl border border-border bg-card p-8 transition-colors hover:border-primary"
               >
-                <Icon className="text-primary mb-5 h-6 w-6" strokeWidth={1.5} />
+                <Icon
+                  aria-hidden="true"
+                  className="text-primary mb-5 h-6 w-6"
+                  strokeWidth={1.5}
+                />
                 <h3 className="font-heading text-foreground mb-2 text-xl">
                   {name}
                 </h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {desc}
                 </p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </section>
