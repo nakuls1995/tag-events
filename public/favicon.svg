@@ -1,4 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#E2394A"/>
-  <text x="32" y="41" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">TAG</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <defs>
+    <radialGradient id="tagBg" cx="50%" cy="35%" r="80%">
+      <stop offset="0%" stop-color="#e2394a"/>
+      <stop offset="100%" stop-color="#7d1219"/>
+    </radialGradient>
+  </defs>
+  <rect width="120" height="120" rx="18" fill="url(#tagBg)"/>
+  <g transform="translate(0,9.25) scale(0.923)">
+    <!-- T -->
+    <rect x="8" y="26" width="34" height="9" fill="#FFFFFF"/>
+    <rect x="18" y="26" width="12" height="48" fill="#FFFFFF"/>
+    <!-- A (triangle with star cutout) -->
+    <polygon points="50,18 32,74 68,74" fill="#FFFFFF"/>
+    <polygon points="50,45 52.35,50.76 58.56,51.22 53.8,55.24 55.29,61.28 50,58 44.71,61.28 46.2,55.24 41.44,51.22 47.65,50.76" fill="#9c1720"/>
+    <!-- G (open ring + bar) -->
+    <circle cx="90" cy="50" r="17" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-dasharray="77.1 29.7" stroke-dashoffset="14.85"/>
+    <rect x="90" y="46" width="14" height="8" fill="#FFFFFF"/>
+    <!-- lightning bolt tail -->
+    <polygon points="98,47 118,50 107,58 125,61 99,86 105,66 89,63" fill="#FFFFFF"/>
+  </g>
 </svg>

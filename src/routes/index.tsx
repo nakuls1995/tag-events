@@ -69,11 +69,6 @@ function Home() {
                 className="inline-flex items-center border border-charcoal bg-transparent px-7 py-3 text-xs font-medium uppercase tracking-[0.2em] text-charcoal transition-all hover:bg-charcoal hover:text-cream">
                 View Portfolio
               </Link>
-              <Link
-                to="/contact"
-                className="inline-flex items-center border border-charcoal bg-transparent px-7 py-3 text-xs font-medium uppercase tracking-[0.2em] text-charcoal transition-all hover:bg-charcoal hover:text-cream">
-                Book a Consultation
-              </Link>
             </div>
           </div>
 
@@ -81,8 +76,7 @@ function Home() {
           <div className="relative hidden h-[560px] w-1/2 animate-in fade-in duration-1000 delay-150 fill-mode-both motion-reduce:animate-none lg:block">
             <div
               ref={frontImage}
-              className="absolute left-0 top-0 h-[500px] w-[320px] overflow-hidden bg-secondary shadow-2xl will-change-transform"
-            >
+              className="absolute left-0 top-0 h-[500px] w-[320px] overflow-hidden bg-secondary shadow-2xl will-change-transform">
               <img
                 key={frontPhoto.src}
                 src={frontPhoto.src}
@@ -96,8 +90,7 @@ function Home() {
             </div>
             <div
               ref={backImage}
-              className="absolute bottom-0 right-0 h-[240px] w-[380px] overflow-hidden bg-secondary shadow-2xl will-change-transform"
-            >
+              className="absolute bottom-0 right-0 h-[240px] w-[380px] overflow-hidden bg-secondary shadow-2xl will-change-transform">
               <img
                 key={backPhoto.src}
                 src={backPhoto.src}

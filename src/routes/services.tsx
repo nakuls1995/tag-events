@@ -30,6 +30,30 @@ export const Route = createFileRoute('/services')({
 
 const weddingPackages: Package[] = [
   {
+    name: 'Classic Décor Package',
+    price: '$1,100+',
+    tagline: 'A balanced blend of backdrop, balloons & table styling',
+    features: [
+      'Custom-designed backdrop',
+      'Balloon garland (70–100 balloons)',
+      'Cake pedestals',
+      'Mirror with customization',
+      '1–2 table décor',
+      'Five table centrepieces',
+    ],
+  },
+  {
+    name: 'Elegant Basic Setup',
+    price: '$1,500+',
+    tagline: 'Suitable for intimate celebrations',
+    features: [
+      'Basic backdrop with a texture to match your theme',
+      '2 table setup',
+      'Five centerpieces',
+      'Entry gold mirror with custom design',
+    ],
+  },
+  {
     name: 'Essential Elegance',
     price: '$3,000+',
     tagline: 'Suitable for weddings up to 50 guests',
@@ -107,9 +131,10 @@ const rentalTables = [
     category: 'Arches',
     rows: [
       { item: 'Round Arch', price: '$50' },
-      { item: 'Wooden Arch', price: '$250' },
-      { item: 'Heart Shaped Arch', price: '$75' },
-      { item: '3 Different Size Archies (4,5,6 feet)', price: '$75' },
+      { item: 'Wooden Arch', price: '$150 (+$50 with drapes)' },
+      { item: 'Heart Shaped Arch', price: '$50' },
+      { item: '4 Tier Round Arch (Set of 2)', price: '$50' },
+      { item: '3 Semi-Arches Gold (4ft, 5ft, 6ft)', price: '$50' },
     ],
   },
   {
@@ -126,21 +151,27 @@ const rentalTables = [
     rows: [
       { item: 'Easel Stand', price: '$15' },
       { item: 'Neon Sign Happy Birthday', price: '$30' },
-      { item: 'Welcome Sign Board', price: '$40' },
       { item: 'Pedestal Set (3)', price: '$75' },
-      { item: 'Cake Stand Set', price: '$40' },
+      { item: 'Drapes', price: '$50' },
+      { item: 'Sequin Gold Panel (6x4 ft)', price: '$50' },
+      { item: 'Cake Stands', price: '$50' },
+      { item: 'Gold Card Boxes', price: '$50' },
+      { item: 'Many more — contact for details', price: 'tagevents2604@gmail.com' },
     ],
   },
 ];
 
 const addOnServices = [
-  { item: 'Day-Of Coordinator', price: 'Starting at $600' },
-  { item: 'Vendor Management', price: 'Starting at $400' },
-  { item: 'Seating Chart Design', price: 'Starting at $75' },
+  { item: 'Day-Of Coordinator', price: '$200' },
+  { item: 'Vendor Management', price: '$300' },
+  { item: 'Seating Chart Design', price: '$75' },
   { item: 'Invitation Design', price: 'Starting at $100' },
-  { item: 'Custom Signage', price: 'Starting at $50' },
-  { item: 'Event Setup Only', price: 'Starting at $250' },
-  { item: 'Event Setup & Teardown', price: 'Starting at $400' },
+  { item: 'Custom Signage', price: '$100' },
+  { item: 'Event Setup', price: '$200' },
+  { item: 'Tear Down', price: '$200' },
+  { item: 'Event Setup & Tear Down', price: '$400' },
+  { item: 'Fog Machine (Clouds on the Floor)', price: '$250' },
+  { item: 'Cold Pyro Services (Set of 2)', price: '$125' },
 ];
 
 function PackageCard({
@@ -286,6 +317,15 @@ function Services() {
               </Reveal>
             ))}
           </div>
+          <Reveal className="mt-16 border-t border-charcoal/20 pt-8">
+            <p className="text-sm leading-[1.8] text-charcoal/70">
+              <span className="font-medium text-charcoal">Note:</span> All
+              rentals come with a 24-hour rental period. If the date extends,
+              charges may apply for the next day. In addition, a security
+              deposit must be paid prior to booking — this deposit is fully
+              refundable when the product is returned on time.
+            </p>
+          </Reveal>
         </section>
 
         {/* Add-On Services */}

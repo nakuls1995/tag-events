@@ -20,7 +20,8 @@ export function Navbar() {
         className="mx-auto flex max-w-6xl items-center justify-between p-4">
         <Link
           to="/"
-          className="font-heading text-xl font-medium tracking-tight text-foreground">
+          className="flex items-center gap-2.5 font-heading text-xl font-medium tracking-tight text-foreground">
+          <img src="/favicon.svg" alt="" aria-hidden="true" width={32} height={32} className="h-8 w-8" />
           TAG Events
         </Link>
         <button
