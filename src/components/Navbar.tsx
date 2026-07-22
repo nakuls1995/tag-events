@@ -21,7 +21,14 @@ export function Navbar() {
         <Link
           to="/"
           className="flex items-center gap-2.5 font-heading text-xl font-medium tracking-tight text-foreground">
-          <img src="/favicon.svg" alt="" aria-hidden="true" width={32} height={32} className="h-8 w-8" />
+          <img
+            src="/tag-logo.png"
+            alt=""
+            aria-hidden="true"
+            width={70}
+            height={70}
+            style={{ borderRadius: '6px' }}
+          />
           TAG Events
         </Link>
         <button
@@ -30,7 +37,10 @@ export function Navbar() {
           aria-label="Toggle menu"
           aria-expanded={open}
           aria-controls="mobile-nav-menu">
-          <Menu aria-hidden="true" size={22} />
+          <Menu
+            aria-hidden="true"
+            size={22}
+          />
         </button>
         <ul className="hidden gap-8 md:flex md:items-center">
           {links.map((l) => (

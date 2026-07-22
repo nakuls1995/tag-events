@@ -88,7 +88,7 @@ const faqs = [
   },
   {
     q: 'What is your cancellation policy?',
-    a: 'Retainers are non-refundable. Cancellation made more than 30 days prior may receivethe payment that you made additionally other than retainer. Full details are outlined in your service agreement.',
+    a: 'Retainers are non-refundable. Cancellation made more than 30 days prior may receive the payment that you made additionally other than retainer. Full details will be in your service agreement.',
   },
 ];
 

@@ -30,19 +30,6 @@ export const Route = createFileRoute('/services')({
 
 const weddingPackages: Package[] = [
   {
-    name: 'Classic Décor Package',
-    price: '$1,100+',
-    tagline: 'A balanced blend of backdrop, balloons & table styling',
-    features: [
-      'Custom-designed backdrop',
-      'Balloon garland (70–100 balloons)',
-      'Cake pedestals',
-      'Mirror with customization',
-      '1–2 table décor',
-      'Five table centrepieces',
-    ],
-  },
-  {
     name: 'Elegant Basic Setup',
     price: '$1,500+',
     tagline: 'Suitable for intimate celebrations',
@@ -95,7 +82,7 @@ const weddingPackages: Package[] = [
 const balloonPackages: Package[] = [
   {
     name: 'Mini Celebration Package',
-    price: '$299+',
+    price: 'Starting from $399+',
     features: [
       'Balloon Garland (6–8 feet)',
       'Basic backdrop',
@@ -122,6 +109,19 @@ const balloonPackages: Package[] = [
       'Neon sign',
       'Floor balloons',
       'Premium styling',
+    ],
+  },
+  {
+    name: 'Classic Décor Package',
+    price: '$1,100',
+    tagline: 'A balanced blend of backdrop, balloons & table styling',
+    features: [
+      'Custom-designed backdrop',
+      'Balloon garland (70–100 balloons)',
+      'Cake pedestals',
+      'Mirror with customization',
+      '1–2 table décor',
+      'Five table centrepieces',
     ],
   },
 ];
@@ -156,7 +156,10 @@ const rentalTables = [
       { item: 'Sequin Gold Panel (6x4 ft)', price: '$50' },
       { item: 'Cake Stands', price: '$50' },
       { item: 'Gold Card Boxes', price: '$50' },
-      { item: 'Many more — contact for details', price: 'tagevents2604@gmail.com' },
+      {
+        item: 'Many more — contact for details',
+        price: 'tagevents2604@gmail.com',
+      },
     ],
   },
 ];
